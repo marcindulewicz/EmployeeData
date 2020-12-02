@@ -16,5 +16,27 @@ namespace EmployeeData
         {
             InitializeComponent();
         }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var addEditEmployee = new AddEditEmployee();
+            addEditEmployee.ShowDialog();
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            var addEditEmployee = new AddEditEmployee();
+            addEditEmployee.ShowDialog();
+        }
+
+        private void BtnFire_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

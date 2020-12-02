@@ -46,6 +46,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnEdit
             // 
@@ -56,6 +57,7 @@
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edytuj";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnFire
             // 
@@ -66,6 +68,7 @@
             this.btnFire.TabIndex = 2;
             this.btnFire.Text = "Zwolnij";
             this.btnFire.UseVisualStyleBackColor = false;
+            this.btnFire.Click += new System.EventHandler(this.BtnFire_Click);
             // 
             // btnRefresh
             // 
@@ -76,6 +79,7 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Odśwież";
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // comboBoxFilter
             // 
