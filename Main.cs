@@ -11,10 +11,13 @@ using System.Windows.Forms;
 namespace EmployeeData
 {
     public partial class Main : Form
+
     {
+        private FileHelper<List<Employee>> fileHelper = new FileHelper<List<Employee>>(Program._filePath);
         public Main()
         {
             InitializeComponent();
+            
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -36,6 +39,16 @@ namespace EmployeeData
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
+
+        }
+        private void RefreshEmployeeData(string filter)
+        {
+            var employee = fileHelper.DeserializeFromFile();
+            employee = employee.OrderBy(x => x.Id).ToList();
+            dgvEmploee.DataSource = employee;
+
+
+
 
         }
     }

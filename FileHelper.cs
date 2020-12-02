@@ -29,6 +29,11 @@ namespace EmployeeData
 
         public T DeserializeFromFile()
         {
+            if (!File.Exists(_filePath))
+            {
+                return new T();
+            }
+
             var serializer = new XmlSerializer(typeof(T));
             using (var streamReader = new StreamReader(_filePath))
             {
