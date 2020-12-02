@@ -11,9 +11,13 @@ namespace EmployeeData
 {
     public class FileHelper<T> where T: new()
     {
-        private static string _filePath = Program._filePath;
+        private string _filePath;
 
-        public static void SerializeToFile(T employee)
+        public FileHelper(string filePath)
+        {
+            _filePath = filePath;
+        }
+        public void SerializeToFile(T employee)
         {
             var serializer = new XmlSerializer(typeof(T));
             using (var streamWriter = new StreamWriter(_filePath))
@@ -23,7 +27,7 @@ namespace EmployeeData
             }
         }
 
-        public static T DeserializeFromFile()
+        public T DeserializeFromFile()
         {
             var serializer = new XmlSerializer(typeof(T));
             using (var streamReader = new StreamReader(_filePath))
