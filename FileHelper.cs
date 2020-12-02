@@ -9,10 +9,9 @@ using System.Xml.Serialization;
 
 namespace EmployeeData
 {
-    class FileHelper<T> where T: new()
+    public class FileHelper<T> where T: new()
     {
-        private static string _filePath = Path.Combine(Environment.CurrentDirectory, "employee.txt");
-     
+        private static string _filePath = Program._filePath;
 
         public static void SerializeToFile(T employee)
         {
