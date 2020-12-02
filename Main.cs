@@ -45,6 +45,11 @@ namespace EmployeeData
         {
             var employee = fileHelper.DeserializeFromFile();
             employee = employee.OrderBy(x => x.Id).ToList();
+
+            if (comboBoxFilter.SelectedItem.ToString() != Program.NoFilterString)
+                employee = employee;  //.FindAll(x => x.IsFired).ToList();
+
+
             dgvEmploee.DataSource = employee;
 
 

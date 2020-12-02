@@ -16,6 +16,7 @@ namespace EmployeeData
         public string Email { get; set; }
         public string DateOfHire { get; set; }
         public string DateOfFire { get; set; }
+        public bool IsFired { get; set; }
 
     }
 }

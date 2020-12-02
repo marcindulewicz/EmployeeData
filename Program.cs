@@ -14,6 +14,7 @@ namespace EmployeeData
     static class Program
     {
         public static string _filePath = Path.Combine(Environment.CurrentDirectory, "employee.txt");
+        public static string NoFilterString = "Wszyscy pracownicy";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
