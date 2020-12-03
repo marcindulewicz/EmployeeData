@@ -24,7 +24,13 @@ namespace EmployeeData
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             var addEditEmployee = new AddEditEmployee();
+            addEditEmployee.FormClosing += AddEditEmployee_FormClosing;
             addEditEmployee.ShowDialog();
+        }
+
+        private void AddEditEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -36,7 +42,7 @@ namespace EmployeeData
 
         private void BtnFire_Click(object sender, EventArgs e)
         {
-
+            RefreshEmployeeData();
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
