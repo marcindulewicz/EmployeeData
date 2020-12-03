@@ -41,10 +41,15 @@ namespace EmployeeData
         private void BtnFire_Click(object sender, EventArgs e)
         {
             WhenNoSelectionRow();
-            var employee = (Employee)dgvEmploee.SelectedRows[0].DataBoundItem;
 
 
-            RefreshEmployeeData();
+            var fireEmployeeConfirmationDialog   =MessageBox.Show("Czy na pewno chcesz zwolnić pracownika?","Zwolnienie pracownika",MessageBoxButtons.YesNo);
+
+            if (fireEmployeeConfirmationDialog == DialogResult.Yes)
+            {
+                FireEmployee();
+                RefreshEmployeeData();
+            }
         }
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
@@ -73,12 +78,24 @@ namespace EmployeeData
             dgvEmploee.Columns[7].HeaderText = "Zwolniony";
 
         }
-
         private void WhenNoSelectionRow()
         {
             if (dgvEmploee.SelectedRows.Count == 0)
                 throw new Exception("Proszę wskaż dane w tabeli");
         }
+        private void FireEmployee()
+        {
+            var employee = (Employee)dgvEmploee.SelectedRows[0].DataBoundItem;
+            var employees = fileHelper.DeserializeFromFile();
+            employees.Remove(employees.Find(x=>x.Id ==employee.Id));
 
+            employee.DateOfFire = DateTime.Now;
+            employee.IsFired = true;
+
+            employees.Add(employee);
+            fileHelper.SerializeToFile(employees);
+
+
+        }
     }
 }
