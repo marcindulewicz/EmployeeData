@@ -96,11 +96,13 @@
             this.dgvEmploee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvEmploee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmploee.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvEmploee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmploee.Location = new System.Drawing.Point(13, 42);
             this.dgvEmploee.MultiSelect = false;
             this.dgvEmploee.Name = "dgvEmploee";
+            this.dgvEmploee.RowHeadersVisible = false;
             this.dgvEmploee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmploee.Size = new System.Drawing.Size(775, 396);
             this.dgvEmploee.TabIndex = 5;

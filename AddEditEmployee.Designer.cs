@@ -37,11 +37,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbPosition = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.rbEmail = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dtpEmployrrHire = new System.Windows.Forms.DateTimePicker();
+            this.dtpEmployeeHire = new System.Windows.Forms.DateTimePicker();
             this.dtpEmployeeFire = new System.Windows.Forms.DateTimePicker();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +59,7 @@
             // 
             this.tbId.Location = new System.Drawing.Point(119, 28);
             this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
             this.tbId.Size = new System.Drawing.Size(232, 20);
             this.tbId.TabIndex = 99;
             // 
@@ -117,12 +120,12 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "E-mail";
             // 
-            // rbEmail
+            // tbEmail
             // 
-            this.rbEmail.Location = new System.Drawing.Point(119, 132);
-            this.rbEmail.Name = "rbEmail";
-            this.rbEmail.Size = new System.Drawing.Size(232, 20);
-            this.rbEmail.TabIndex = 4;
+            this.tbEmail.Location = new System.Drawing.Point(119, 132);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(232, 20);
+            this.tbEmail.TabIndex = 4;
             // 
             // label6
             // 
@@ -142,12 +145,12 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Data zwolnienia";
             // 
-            // dtpEmployrrHire
+            // dtpEmployeeHire
             // 
-            this.dtpEmployrrHire.Location = new System.Drawing.Point(119, 161);
-            this.dtpEmployrrHire.Name = "dtpEmployrrHire";
-            this.dtpEmployrrHire.Size = new System.Drawing.Size(200, 20);
-            this.dtpEmployrrHire.TabIndex = 5;
+            this.dtpEmployeeHire.Location = new System.Drawing.Point(119, 161);
+            this.dtpEmployeeHire.Name = "dtpEmployeeHire";
+            this.dtpEmployeeHire.Size = new System.Drawing.Size(200, 20);
+            this.dtpEmployeeHire.TabIndex = 5;
             // 
             // dtpEmployeeFire
             // 
@@ -156,16 +159,38 @@
             this.dtpEmployeeFire.Size = new System.Drawing.Size(200, 20);
             this.dtpEmployeeFire.TabIndex = 6;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(171, 221);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 100;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(253, 221);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 101;
+            this.btnConfirm.Text = "Zatwierdź";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
+            // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 236);
+            this.ClientSize = new System.Drawing.Size(363, 256);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dtpEmployeeFire);
-            this.Controls.Add(this.dtpEmployrrHire);
+            this.Controls.Add(this.dtpEmployeeHire);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.rbEmail);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbPosition);
             this.Controls.Add(this.label4);
@@ -175,8 +200,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(379, 275);
-            this.MinimumSize = new System.Drawing.Size(379, 275);
+            this.MaximumSize = new System.Drawing.Size(379, 295);
+            this.MinimumSize = new System.Drawing.Size(379, 295);
             this.Name = "AddEditEmployee";
             this.Text = "Dodaj pracownika";
             this.ResumeLayout(false);
@@ -195,10 +220,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbPosition;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox rbEmail;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpEmployrrHire;
+        private System.Windows.Forms.DateTimePicker dtpEmployeeHire;
         private System.Windows.Forms.DateTimePicker dtpEmployeeFire;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }

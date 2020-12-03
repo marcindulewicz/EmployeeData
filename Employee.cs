@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeData
 {
-    class Employee
+    public class Employee
     {
 
         public int Id { get; set; }
@@ -14,8 +14,8 @@ namespace EmployeeData
         public string LastName { get; set; }
         public string Position { get; set; }
         public string Email { get; set; }
-        public string DateOfHire { get; set; }
-        public string DateOfFire { get; set; }
+        public DateTime DateOfHire { get; set; }
+        public DateTime DateOfFire { get; set; }
         public bool IsFired { get; set; }
 
     }

@@ -17,7 +17,8 @@ namespace EmployeeData
         public Main()
         {
             InitializeComponent();
-            
+            RefreshEmployeeData();
+
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -28,8 +29,9 @@ namespace EmployeeData
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            var addEditEmployee = new AddEditEmployee();
-            addEditEmployee.ShowDialog();
+
+            var addEditEmployee = new AddEditEmployee(Convert.ToInt32(dgvEmploee.SelectedRows[0].Cells[0].Value));
+             addEditEmployee.ShowDialog();
         }
 
         private void BtnFire_Click(object sender, EventArgs e)
@@ -39,15 +41,16 @@ namespace EmployeeData
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-
+            RefreshEmployeeData();
         }
-        private void RefreshEmployeeData(string filter)
+        private void RefreshEmployeeData()
+
         {
             var employee = fileHelper.DeserializeFromFile();
             employee = employee.OrderBy(x => x.Id).ToList();
 
-            if (comboBoxFilter.SelectedItem.ToString() != Program.NoFilterString)
-                employee = employee;  //.FindAll(x => x.IsFired).ToList();
+            //if (comboBoxFilter.SelectedItem.ToString() != Program.NoFilterString)
+            //    employee = employee;  //.FindAll(x => x.IsFired).ToList();
 
 
             dgvEmploee.DataSource = employee;
