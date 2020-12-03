@@ -19,6 +19,7 @@ namespace EmployeeData
         public AddEditEmployee(int employeeID = 0)
         {
             InitializeComponent();
+            SetMaxValueToNumberControl();
             _employeeID = employeeID;
             dtpEmployeeFire.Value = DateTimePicker.MinimumDateTime;
             employees = fileHelper.DeserializeFromFile();
@@ -28,7 +29,7 @@ namespace EmployeeData
                 SetHighestID();
         }
         private void BtnConfirm_Click(object sender, EventArgs e)
-        {          
+        {
             var employee = CreateNewEmployee();
             employees.Add(employee);
             fileHelper.SerializeToFile(employees);
@@ -57,6 +58,8 @@ namespace EmployeeData
             tbLastName.Text = employee.LastName;
             tbPosition.Text = employee.Position;
             tbEmail.Text = employee.Email;
+            nudSalary.Value = employee.Salary;
+            nudFolderNumber.Value = employee.FolderNumber;
             dtpEmployeeHire.Value = employee.DateOfHire;
             dtpEmployeeFire.Value = employee.DateOfFire;
 
@@ -70,13 +73,22 @@ namespace EmployeeData
                 LastName = tbLastName.Text,
                 Position = tbPosition.Text,
                 Email = tbEmail.Text,
+                Salary = nudSalary.Value,
+                FolderNumber = nudFolderNumber.Value,
                 DateOfHire = dtpEmployeeHire.Value,
                 DateOfFire = dtpEmployeeFire.Value < dtpEmployeeHire.Value ? DateTimePicker.MinimumDateTime : dtpEmployeeFire.Value,
-                IsFired = dtpEmployeeFire.Value == DateTimePicker.MinimumDateTime ? false : true
+                IsFired = dtpEmployeeFire.Value == DateTimePicker.MinimumDateTime ? false : true,
+                Comments = rtComments.Text
+
             };
 
             return employee;
         }
-
+        private void SetMaxValueToNumberControl()
+        {
+            nudFolderNumber.Maximum = Decimal.MaxValue;
+            nudSalary.Maximum = Decimal.MaxValue;
+            
+        }
     }
 }

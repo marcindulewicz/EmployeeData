@@ -20,6 +20,7 @@ namespace EmployeeData
             RefreshEmployeeData();
             SetHeadersToDataGridEmployee();
             comboBoxFilter.DataSource = Program.filterList;
+            MessageBox.Show(Decimal.MaxValue.ToString());
         }
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -73,9 +74,13 @@ namespace EmployeeData
             dgvEmploee.Columns[2].HeaderText = "Nazwisko";
             dgvEmploee.Columns[3].HeaderText = "Stanowisko";
             dgvEmploee.Columns[4].HeaderText = "E-mail";
-            dgvEmploee.Columns[5].HeaderText = "Data zatrudnienia";
-            dgvEmploee.Columns[6].HeaderText = "Data zwolnienia";
-            dgvEmploee.Columns[7].HeaderText = "Zwolniony";
+            dgvEmploee.Columns[5].HeaderText = "Pensja";
+            dgvEmploee.Columns[6].HeaderText = "Numer Teczki";
+            dgvEmploee.Columns[7].HeaderText = "Data zatrudnienia";
+            dgvEmploee.Columns[8].HeaderText = "Data zwolnienia";
+            dgvEmploee.Columns[9].HeaderText = "Zwolniony";
+            dgvEmploee.Columns[10].HeaderText = "Uwagi";
+
 
         }
         private void WhenNoSelectionRow()
@@ -94,8 +99,6 @@ namespace EmployeeData
 
             employees.Add(employee);
             fileHelper.SerializeToFile(employees);
-
-
         }
     }
 }
