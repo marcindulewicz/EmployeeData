@@ -18,21 +18,18 @@ namespace EmployeeData
         {
             InitializeComponent();
             RefreshEmployeeData();
-
+            comboBoxFilter.DataSource = Program.filterList;
         }
-
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             var addEditEmployee = new AddEditEmployee();
             addEditEmployee.FormClosing += AddEditEmployee_FormClosing;
             addEditEmployee.ShowDialog();
         }
-
         private void AddEditEmployee_FormClosing(object sender, FormClosingEventArgs e)
         {
             RefreshEmployeeData();
         }
-
         private void BtnEdit_Click(object sender, EventArgs e)
         {
 
@@ -40,31 +37,25 @@ namespace EmployeeData
             addEditEmployee.FormClosing += AddEditEmployee_FormClosing;
             addEditEmployee.ShowDialog();
         }
-
         private void BtnFire_Click(object sender, EventArgs e)
         {
             RefreshEmployeeData();
         }
-
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             RefreshEmployeeData();
         }
         private void RefreshEmployeeData()
-
         {
-            var employee = fileHelper.DeserializeFromFile();
-            employee = employee.OrderBy(x => x.Id).ToList();
+            var employee = fileHelper.DeserializeFromFile().OrderBy(x => x.Id).ToList();
 
-            //if (comboBoxFilter.SelectedItem.ToString() != Program.NoFilterString)
-            //    employee = employee;  //.FindAll(x => x.IsFired).ToList();
-
+            if (comboBoxFilter.SelectedIndex == 1)
+                employee = employee.FindAll(x => x.IsFired == false);
+            else if (comboBoxFilter.SelectedIndex == 2)
+                employee = employee.FindAll(x => x.IsFired == true);
 
             dgvEmploee.DataSource = employee;
-
-
-
-
         }
+
     }
 }

@@ -15,6 +15,7 @@ namespace EmployeeData
     {
         public static string _filePath = Path.Combine(Environment.CurrentDirectory, "employee.txt");
         public static string NoFilterString = "Wszyscy pracownicy";
+        public static List<string> filterList = new List<string>() { NoFilterString, "Pracujący", "Zwolnieni" };
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
