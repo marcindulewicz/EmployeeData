@@ -203,6 +203,7 @@
             this.MaximumSize = new System.Drawing.Size(379, 295);
             this.MinimumSize = new System.Drawing.Size(379, 295);
             this.Name = "AddEditEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj pracownika";
             this.ResumeLayout(false);
             this.PerformLayout();

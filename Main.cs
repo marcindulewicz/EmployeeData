@@ -18,6 +18,7 @@ namespace EmployeeData
         {
             InitializeComponent();
             RefreshEmployeeData();
+            SetHeadersToDataGridEmployee();
             comboBoxFilter.DataSource = Program.filterList;
         }
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -55,6 +56,18 @@ namespace EmployeeData
                 employee = employee.FindAll(x => x.IsFired == true);
 
             dgvEmploee.DataSource = employee;
+        }
+        private void SetHeadersToDataGridEmployee()
+        {
+            dgvEmploee.Columns[0].HeaderText = "ID";
+            dgvEmploee.Columns[1].HeaderText = "Imie";
+            dgvEmploee.Columns[2].HeaderText = "Nazwisko";
+            dgvEmploee.Columns[3].HeaderText = "Stanowisko";
+            dgvEmploee.Columns[4].HeaderText = "E-mail";
+            dgvEmploee.Columns[5].HeaderText = "Data zatrudnienia";
+            dgvEmploee.Columns[6].HeaderText = "Data zwolnienia";
+            dgvEmploee.Columns[7].HeaderText = "Zwolniony";
+
         }
 
     }

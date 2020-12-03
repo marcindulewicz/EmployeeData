@@ -27,16 +27,13 @@ namespace EmployeeData
             else
                 SetHighestID();
         }
-
         private void BtnConfirm_Click(object sender, EventArgs e)
         {          
             var employee = CreateNewEmployee();
             employees.Add(employee);
             fileHelper.SerializeToFile(employees);
             Close();
-
         }
-
         private void SetHighestID()
         {
             var employeeWithHighestId = employees.OrderByDescending(x => x.Id).FirstOrDefault();
