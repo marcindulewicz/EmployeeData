@@ -30,14 +30,15 @@ namespace EmployeeData
 
         private void AddEditEmployee_FormClosing(object sender, FormClosingEventArgs e)
         {
-            throw new NotImplementedException();
+            RefreshEmployeeData();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
 
             var addEditEmployee = new AddEditEmployee(Convert.ToInt32(dgvEmploee.SelectedRows[0].Cells[0].Value));
-             addEditEmployee.ShowDialog();
+            addEditEmployee.FormClosing += AddEditEmployee_FormClosing;
+            addEditEmployee.ShowDialog();
         }
 
         private void BtnFire_Click(object sender, EventArgs e)
