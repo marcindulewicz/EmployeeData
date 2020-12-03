@@ -33,13 +33,17 @@ namespace EmployeeData
         }
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-
+            WhenNoSelectionRow();
             var addEditEmployee = new AddEditEmployee(Convert.ToInt32(dgvEmploee.SelectedRows[0].Cells[0].Value));
             addEditEmployee.FormClosing += AddEditEmployee_FormClosing;
             addEditEmployee.ShowDialog();
         }
         private void BtnFire_Click(object sender, EventArgs e)
         {
+            WhenNoSelectionRow();
+            var employee = (Employee)dgvEmploee.SelectedRows[0].DataBoundItem;
+
+
             RefreshEmployeeData();
         }
         private void BtnRefresh_Click(object sender, EventArgs e)
@@ -68,6 +72,12 @@ namespace EmployeeData
             dgvEmploee.Columns[6].HeaderText = "Data zwolnienia";
             dgvEmploee.Columns[7].HeaderText = "Zwolniony";
 
+        }
+
+        private void WhenNoSelectionRow()
+        {
+            if (dgvEmploee.SelectedRows.Count == 0)
+                throw new Exception("Proszę wskaż dane w tabeli");
         }
 
     }
